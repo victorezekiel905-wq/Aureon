@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Dashboard · Aureon</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#07090f">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <script>try{var t=localStorage.getItem('aureon-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/app.css">
+  <script src="assets/js/icons.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+  <script defer src="assets/js/config.js"></script>
+  <script defer src="assets/js/core.js"></script>
+  <script defer src="assets/js/charts.js"></script>
+  <script defer src="assets/js/app.js"></script>
+</head>
+<body class="app-body">
+  <div class="boot" id="boot"><div class="boot-inner"><svg class="logo-mark" aria-hidden="true"><use href="#i-logo"></use></svg><span class="spinner"></span></div></div>
+
+  <div class="shell">
+    <aside class="sidebar" id="sidebar" aria-label="Main navigation">
+      <a class="logo" href="#/overview"><svg aria-hidden="true"><use href="#i-logo"></use></svg>Aureon</a>
+      <nav id="sideNav"></nav>
+      <div class="sidebar-foot">
+        <div class="user-chip" id="userChip"></div>
+        <button class="nav-item mt-2" style="width:100%" data-action="signout"><svg class="i" aria-hidden="true"><use href="#i-logout"></use></svg>Sign out</button>
+      </div>
+    </aside>
+
+    <div class="main">
+      <header class="topbar">
+        <button class="icon-btn menu-toggle" data-action="menu" aria-label="Open menu"><svg class="i" aria-hidden="true"><use href="#i-menu"></use></svg></button>
+        <h1 id="pageTitle">Overview</h1>
+        <div class="topbar-actions">
+          <button class="icon-btn" data-action="hide-balances" id="hideBtn" aria-label="Hide balances"><svg class="i" aria-hidden="true"><use href="#i-eye"></use></svg></button>
+          <button class="icon-btn theme-btn" data-theme-toggle aria-label="Toggle dark mode"><svg class="i sun" aria-hidden="true"><use href="#i-sun"></use></svg><svg class="i moon" aria-hidden="true"><use href="#i-moon"></use></svg></button>
+          <div style="position:relative">
+            <button class="icon-btn" data-action="notifications" id="bellBtn" aria-label="Notifications" aria-haspopup="true"><svg class="i" aria-hidden="true"><use href="#i-bell"></use></svg></button>
+          </div>
+          <div style="position:relative">
+            <button class="avatar-btn" data-action="user-menu" id="avatarBtn" aria-label="Account menu" aria-haspopup="true"></button>
+          </div>
+        </div>
+      </header>
+      <div class="view" id="view" tabindex="-1">
+        <div class="banners" id="banners"></div>
+        <div id="viewBody"></div>
+      </div>
+    </div>
+  </div>
+
+  <nav class="tabbar" id="tabbar" aria-label="Quick navigation">
+    <a href="#/overview" data-tab="overview"><svg class="i" aria-hidden="true"><use href="#i-home"></use></svg>Home</a>
+    <a href="#/cards" data-tab="cards"><svg class="i" aria-hidden="true"><use href="#i-card"></use></svg>Cards</a>
+    <a href="#/transfer" data-tab="transfer" class="tab-main"><span class="ic"><svg class="i" aria-hidden="true"><use href="#i-send"></use></svg></span>Send</a>
+    <a href="#/transactions" data-tab="transactions"><svg class="i" aria-hidden="true"><use href="#i-history"></use></svg>Activity</a>
+    <a href="#/more" data-tab="more" data-action="menu"><svg class="i" aria-hidden="true"><use href="#i-grid"></use></svg>More</a>
+  </nav>
+</body>
+</html>
