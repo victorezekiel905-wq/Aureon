@@ -124,14 +124,34 @@ node scripts/keep-alive.mjs --loop   # stay running and ping every 6 hours
 ## Project structure
 
 ```
-index.html, login.html, signup.html, forgot-password.html, reset-password.html, app.html, admin.html, 404.html
-assets/css/   base.css (design system) · alpha.css (landing page) · site.css (auth pages) · app.css (app + admin)
-assets/js/    config.js · core.js (client, helpers, modals, PIN pad) · icons.js · charts.js
-              landing.js (landing page) · auth.js · app.js (customer app) · admin.js (admin console)
-supabase/     schema.sql — the whole database: tables, security policies, functions, super admins
-scripts/      keep-alive.mjs
-.github/      workflows/keep-alive.yml
+Public website (generated, see below):
+  index.html · personal.html · business.html · cards.html · savings-loans.html
+  rates.html · security.html · about.html · help.html
+App pages:
+  login.html · signup.html · forgot-password.html · reset-password.html · app.html · admin.html · 404.html
+
+src/pages/     source of each public website page (body only)
+src/partials/  head.html · header.html (navigation) · footer.html, shared by every public page
+assets/css/    alpha.css + pages.css (public website) · base.css (design system) · site.css (auth pages) · app.css (app + admin)
+assets/js/     site.js (public website) · config.js · core.js (client, helpers, modals, PIN pad) · icons.js · charts.js
+               auth.js · app.js (customer app) · admin.js (admin console)
+assets/img/    logo, favicon · photos/ (3D renders of the Aureon banking hall and Aureon Tower)
+supabase/      schema.sql: the whole database (tables, security policies, functions, super admins)
+scripts/       build-pages.mjs · keep-alive.mjs
+.github/       workflows/keep-alive.yml
 ```
+
+### Editing the public website
+
+The nine public pages share one navigation bar and footer. Edit the page body in
+`src/pages/<page>.html` (or the shared parts in `src/partials/`), then rebuild:
+
+```
+node scripts/build-pages.mjs
+```
+
+This rewrites the matching `.html` files in the repository root. Do not edit those
+generated files directly; your changes would be overwritten on the next build.
 
 ## Changing things
 

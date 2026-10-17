@@ -1,0 +1,107 @@
+<!--meta {"title": "Savings & Loans · Aureon", "description": "Aureon savings accounts and goals, and fixed-rate personal loans with no early-repayment fees. Try the loan calculator."} -->
+
+<section class="page-hero">
+  <div class="container page-hero-grid">
+    <div class="page-hero-text">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><i class="fas fa-chevron-right"></i><span>Savings &amp; Loans</span></nav>
+      <div class="section-tag">Savings &amp; Loans</div>
+      <h1>Save with purpose.<br /><span class="text-gradient">Borrow with clarity.</span></h1>
+      <p class="hero-subtitle">Earn <span data-fact="savings">4.00%</span> APR on savings, track goals to the day, and see your exact monthly loan payment before you apply.</p>
+      <div class="hero-actions">
+        <a href="#savings" class="btn btn-primary btn-lg btn-glow"><i class="fas fa-piggy-bank"></i> Start Saving</a>
+        <a href="#loan-calculator" class="btn btn-ghost btn-lg"><i class="fas fa-calculator"></i> Loan Calculator</a>
+      </div>
+    </div>
+    <div class="page-hero-visual">
+      <div class="goal-card glass-tile">
+        <div class="ring" id="goalRing">
+          <svg viewBox="0 0 120 120"><defs><linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2563EB"/><stop offset="1" stop-color="#7C3AED"/></linearGradient></defs><circle class="ring-track" cx="60" cy="60" r="50"/><circle class="ring-bar" cx="60" cy="60" r="50" stroke-dasharray="314.16" stroke-dashoffset="314.16"/></svg>
+          <b>72%</b>
+        </div>
+        <div class="goal-meta"><small>Savings goal</small><b>Lisbon, summer</b><span>$3,600 of $5,000 · 90 days left</span></div>
+      </div>
+      <div class="photo-chip chip-e"><div class="float-icon green"><i class="fas fa-coins"></i></div><span>+$104.22 interest paid</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="savings">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-tag">Savings</div>
+      <h2 class="section-title">Money set aside,<br /><span class="text-gradient">working for you</span></h2>
+    </div>
+    <div class="features-grid three">
+      <div class="feature-card reveal delay-1"><div class="feature-icon icon-gold"><i class="fas fa-percent"></i></div><h3 class="feature-title"><span data-fact="savings">4.00%</span> APR</h3><p class="feature-desc">Savings accounts earn interest every month, shown as its own line in your activity.</p></div>
+      <div class="feature-card reveal delay-2"><div class="feature-icon icon-blue"><i class="fas fa-bullseye"></i></div><h3 class="feature-title">Goals with dates</h3><p class="feature-desc">Name a goal, choose an icon, set a target and a date, and see how many days are left.</p></div>
+      <div class="feature-card reveal delay-3"><div class="feature-icon icon-purple"><i class="fas fa-random"></i></div><h3 class="feature-title">Flexible</h3><p class="feature-desc">Add money or withdraw whenever you need it. No notice periods and no penalties.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section features" id="loan-calculator">
+  <div class="container">
+    <div class="split-section">
+      <div class="split-text reveal-left">
+        <div class="section-tag">Loans</div>
+        <h2 class="section-title">A fixed rate.<br /><span class="text-gradient">No surprises.</span></h2>
+        <p class="section-subtitle split-sub">Every Aureon loan has a fixed <span data-fact="loan">12.00%</span> APR. You see the monthly payment and the total before you apply, and a person on our team makes the decision.</p>
+        <ul class="check-list">
+          <li><div class="check-dot" style="background: linear-gradient(135deg, var(--primary), var(--accent));">✓</div><div><div class="check-title">Terms from 3 to 60 months</div><div class="check-sub">Choose what fits your budget</div></div></li>
+          <li><div class="check-dot" style="background: linear-gradient(135deg, var(--accent), var(--cyan));">✓</div><div><div class="check-title">Borrow up to <span data-fee="maxloan">$50,000</span></div><div class="check-sub">Paid into the account you choose</div></div></li>
+          <li><div class="check-dot" style="background: linear-gradient(135deg, var(--cyan), var(--primary));">✓</div><div><div class="check-title">Repay early, free</div><div class="check-sub">No early-repayment fees, ever</div></div></li>
+        </ul>
+      </div>
+      <div class="calc-card reveal-right">
+        <h3>Loan calculator</h3>
+        <p class="calc-sub">Fixed <span data-fact="loan">12.00%</span> APR</p>
+        <div class="calc-field">
+          <label for="loanAmount">Amount <b id="loanAmountOut">$10,000</b></label>
+          <input class="range" id="loanAmount" type="range" min="500" max="50000" step="500" value="10000" />
+        </div>
+        <div class="calc-field">
+          <span class="calc-label">Term</span>
+          <div class="term-chips" id="termChips">
+            <button type="button" data-term="6" aria-pressed="false">6 mo</button>
+            <button type="button" data-term="12" aria-pressed="true">12 mo</button>
+            <button type="button" data-term="24" aria-pressed="false">24 mo</button>
+            <button type="button" data-term="36" aria-pressed="false">36 mo</button>
+            <button type="button" data-term="60" aria-pressed="false">60 mo</button>
+          </div>
+        </div>
+        <div class="calc-out" aria-live="polite">
+          <div><small>Monthly payment</small><b id="loanMonthly">$888.49</b></div>
+          <div><small>Total to repay</small><b id="loanTotal">$10,661.85</b></div>
+        </div>
+        <a href="app.html#/loans" class="btn btn-primary btn-block">Apply in Online Banking</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-tag">How Loans Work</div>
+      <h2 class="section-title">From application<br /><span class="text-gradient">to your account</span></h2>
+    </div>
+    <div class="timeline">
+      <div class="timeline-step reveal delay-1"><span class="tl-dot"><i class="fas fa-file-signature"></i></span><h3>Apply</h3><p>Choose the amount, term, account and purpose in Online Banking. It takes about a minute.</p></div>
+      <div class="timeline-step reveal delay-2"><span class="tl-dot"><i class="fas fa-user-check"></i></span><h3>We decide</h3><p>Our team reviews the application and you are notified of the decision in the app.</p></div>
+      <div class="timeline-step reveal delay-3"><span class="tl-dot"><i class="fas fa-hand-holding-usd"></i></span><h3>Get paid, repay</h3><p>Approved money lands in your account. Make repayments any time, early if you like.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section cta-section">
+  <div class="container">
+    <div class="cta-card reveal">
+      <h2 class="cta-title">Start your first <span class="text-gradient">goal</span> today</h2>
+      <p class="cta-text">Open an Aureon account, add a savings account, and set your first goal in under five minutes.</p>
+      <div class="cta-actions">
+        <a href="signup.html" class="btn btn-primary btn-lg btn-glow"><i class="fas fa-rocket"></i> Open Free Account</a>
+        <a href="rates.html" class="btn btn-ghost btn-lg"><i class="fas fa-percent"></i> All Rates</a>
+      </div>
+    </div>
+  </div>
+</section>

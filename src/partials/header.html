@@ -1,0 +1,68 @@
+
+<!-- Animated Background -->
+<div class="animated-bg">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+</div>
+<div class="light-streaks">
+  <div class="streak"></div>
+  <div class="streak"></div>
+  <div class="streak"></div>
+  <div class="streak"></div>
+</div>
+
+<!-- Navigation -->
+<nav class="navbar" id="navbar" aria-label="Main">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo" aria-label="Aureon home">
+      <div class="logo-icon"><svg class="aureon-mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M9 23.5 16 8l7 15.5"/><path d="M7 18.6c4.6-3.1 13.4-3.1 18 0"/></svg></div>
+      <span class="logo-text">Aure<span>on</span></span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="personal.html" data-nav="personal">Personal</a></li>
+      <li><a href="business.html" data-nav="business">Business</a></li>
+      <li><a href="cards.html" data-nav="cards">Cards</a></li>
+      <li><a href="savings-loans.html" data-nav="savings-loans">Savings &amp; Loans</a></li>
+      <li><a href="rates.html" data-nav="rates">Rates</a></li>
+      <li class="nav-dropdown">
+        <button class="nav-dropdown-toggle" type="button">More <i class="fas fa-chevron-down"></i></button>
+        <div class="nav-dropdown-menu">
+          <a href="about.html" data-nav="about">About Aureon</a>
+          <a href="security.html" data-nav="security">Security Centre</a>
+          <a href="help.html" data-nav="help">Help &amp; Support</a>
+          <a href="app.html">Online Banking</a>
+        </div>
+      </li>
+    </ul>
+
+    <div class="nav-actions">
+      <div class="theme-toggle" id="themeToggle" title="Toggle dark mode" role="button" tabindex="0" aria-label="Toggle dark mode">
+        <div class="theme-toggle-thumb" id="themeThumb">☀️</div>
+      </div>
+      <a href="login.html" class="btn btn-ghost nav-btn" data-auth="out">Login</a>
+      <a href="signup.html" class="btn btn-primary nav-btn" data-auth="out">Open Account</a>
+      <a href="app.html" class="btn btn-primary nav-btn" data-auth="in" hidden>My Dashboard</a>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu"><i class="fas fa-times"></i></button>
+  <a href="index.html">Home</a>
+  <a href="personal.html">Personal</a>
+  <a href="business.html">Business</a>
+  <a href="cards.html">Cards</a>
+  <a href="savings-loans.html">Savings &amp; Loans</a>
+  <a href="rates.html">Rates</a>
+  <a href="about.html">About Aureon</a>
+  <a href="security.html">Security Centre</a>
+  <a href="help.html">Help &amp; Support</a>
+  <a href="login.html">Login</a>
+  <a href="signup.html" class="btn btn-primary btn-lg">Open Account</a>
+</div>

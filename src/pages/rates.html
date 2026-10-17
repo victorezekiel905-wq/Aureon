@@ -1,0 +1,74 @@
+<!--meta {"title": "Rates & Fees · Aureon", "description": "Live Aureon exchange rates for USD, EUR, GBP, CAD and NGN, plus every fee, limit and interest rate in one place."} -->
+
+<section class="page-hero compact">
+  <div class="container page-hero-grid">
+    <div class="page-hero-text">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><i class="fas fa-chevron-right"></i><span>Rates &amp; Fees</span></nav>
+      <div class="section-tag">Rates &amp; Fees</div>
+      <h1>Clear numbers.<br /><span class="text-gradient">No small print.</span></h1>
+      <p class="hero-subtitle">Rates and fees on this page are read live from Aureon. What you see here is what you pay.</p>
+      <p class="live-note"><span class="dot"></span> <span id="ratesUpdated">Showing standard rates</span></p>
+    </div>
+    <div class="page-hero-visual">
+      <div class="calc-card converter-card">
+        <h3>Currency converter</h3>
+        <p class="calc-sub">Live Aureon exchange rates</p>
+        <div class="calc-field">
+          <label for="currencyInput">Amount</label>
+          <input type="number" id="currencyInput" value="1000" min="0" class="conv-field wide" />
+        </div>
+        <div class="conv-pair">
+          <div class="calc-field"><label for="fromCurrency">From</label><select id="fromCurrency" class="conv-field wide"></select></div>
+          <button type="button" id="swapBtn" class="conv-swap" aria-label="Swap currencies">⇄</button>
+          <div class="calc-field"><label for="toCurrency">To</label><select id="toCurrency" class="conv-field wide"></select></div>
+        </div>
+        <div class="calc-out single" aria-live="polite"><div><small id="convRate">1 USD = 0.92 EUR</small><b id="convertedAmount">920.00 EUR</b></div></div>
+        <button type="button" id="convertBtn" class="btn btn-primary btn-block">Convert</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="two-tables">
+      <div class="table-card reveal-left">
+        <h3><i class="fas fa-globe"></i> Exchange rates</h3>
+        <p class="calc-sub">Units of each currency for 1 US Dollar</p>
+        <table class="info-table">
+          <thead><tr><th>Currency</th><th class="num">Per 1 USD</th><th class="num">1 unit in USD</th></tr></thead>
+          <tbody id="ratesTable"></tbody>
+        </table>
+      </div>
+      <div class="table-card reveal-right">
+        <h3><i class="fas fa-receipt"></i> Fees, limits &amp; interest</h3>
+        <p class="calc-sub">Applies to every Aureon account</p>
+        <table class="info-table">
+          <tbody>
+            <tr><td>Transfers between Aureon accounts</td><td class="num" data-fee="internal">Free</td></tr>
+            <tr><td>Transfers to other banks</td><td class="num" data-fee="external">0.50% (min $1.00)</td></tr>
+            <tr><td>Transfers reviewed above</td><td class="num" data-fee="review">$10,000</td></tr>
+            <tr><td>Daily payment limit</td><td class="num" data-fee="limit">$50,000</td></tr>
+            <tr><td>Savings account interest</td><td class="num" data-fact="savings">4.00%</td></tr>
+            <tr><td>Loan interest (fixed APR)</td><td class="num" data-fact="loan">12.00%</td></tr>
+            <tr><td>Maximum loan</td><td class="num" data-fee="maxloan">$50,000</td></tr>
+            <tr><td>Monthly account fee</td><td class="num">None</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section cta-section">
+  <div class="container">
+    <div class="cta-card reveal">
+      <h2 class="cta-title">Rates you can <span class="text-gradient">plan around</span></h2>
+      <p class="cta-text">Open an account and these rates apply from day one.</p>
+      <div class="cta-actions">
+        <a href="signup.html" class="btn btn-primary btn-lg btn-glow"><i class="fas fa-rocket"></i> Open Free Account</a>
+        <a href="savings-loans.html#loan-calculator" class="btn btn-ghost btn-lg"><i class="fas fa-calculator"></i> Loan Calculator</a>
+      </div>
+    </div>
+  </div>
+</section>
