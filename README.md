@@ -52,6 +52,13 @@ Sign up on the website with either email and you get super admin automatically.
 2. Open **SQL Editor → New query**, paste the whole of [`supabase/schema.sql`](supabase/schema.sql) and press **Run**.
    It is safe to run again later — it never deletes data.
 
+> **Use a new, empty project for Aureon.** If the project already has tables from another app with the
+> same names (for example `profiles`, `accounts` or `notifications`), the script stops with
+> *"Aureon was not installed: this database already has tables from another app (…)"* and changes
+> nothing. Older copies of the script failed here with `column "user_id" does not exist`. Do not
+> delete the listed tables to make room unless you are certain no other app uses them; create a
+> separate project instead.
+
 ### 2. Configure authentication
 In **Authentication → URL Configuration**:
 - **Site URL:** your live site, e.g. `https://victorezekiel905-wq.github.io/Aureon/`

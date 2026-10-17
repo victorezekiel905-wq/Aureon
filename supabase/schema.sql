@@ -19,6 +19,41 @@
 --      with row locks, balance checks, daily limits and a hashed 4-digit PIN.
 -- =============================================================================
 
+-- -----------------------------------------------------------------------------
+--  0. Pre-flight: refuse to install over another app's tables
+--     Aureon's tables use common names (profiles, accounts, notifications...).
+--     If this database already has a table with one of those names but a
+--     different structure, it belongs to some other app. Stop here, before
+--     anything is changed, and say which tables are in the way.
+-- -----------------------------------------------------------------------------
+do $preflight$
+declare
+  expected constant text[][] := array[
+    ['settings', 'base_currency'], ['fx_rates', 'per_usd'], ['admin_allowlist', 'email'],
+    ['profiles', 'kyc_status'], ['accounts', 'account_number'], ['transactions', 'idempotency_key'],
+    ['beneficiaries', 'is_internal'], ['cards', 'card_number'], ['savings_goals', 'target_amount'],
+    ['loans', 'monthly_payment'], ['notifications', 'read_at'], ['support_tickets', 'subject'],
+    ['ticket_messages', 'is_staff'], ['account_invites', 'opening_balance'], ['audit_log', 'actor_id'],
+    ['heartbeat', 'last_ping']
+  ];
+  conflicts text[] := '{}';
+  i int;
+begin
+  for i in 1 .. array_length(expected, 1) loop
+    if to_regclass('public.' || expected[i][1]) is not null
+       and not exists (select 1 from information_schema.columns
+                        where table_schema = 'public' and table_name = expected[i][1]
+                          and column_name = expected[i][2]) then
+      conflicts := conflicts || expected[i][1];
+    end if;
+  end loop;
+  if array_length(conflicts, 1) > 0 then
+    raise exception 'Aureon was not installed: this database already has tables from another app (%). Nothing was changed.', array_to_string(conflicts, ', ')
+      using hint = 'Run schema.sql in a new, empty Supabase project. Do not delete these tables unless you are sure no other app uses them.';
+  end if;
+end
+$preflight$;
+
 create extension if not exists pgcrypto with schema extensions;
 
 create schema if not exists private;          -- not exposed through the API
