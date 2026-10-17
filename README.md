@@ -125,9 +125,9 @@ node scripts/keep-alive.mjs --loop   # stay running and ping every 6 hours
 
 ```
 index.html, login.html, signup.html, forgot-password.html, reset-password.html, app.html, admin.html, 404.html
-assets/css/   base.css (design system) · site.css (marketing + auth) · app.css (app + admin)
+assets/css/   base.css (design system) · alpha.css (landing page) · site.css (auth pages) · app.css (app + admin)
 assets/js/    config.js · core.js (client, helpers, modals, PIN pad) · icons.js · charts.js
-              site.js (landing) · auth.js · app.js (customer app) · admin.js (admin console)
+              landing.js (landing page) · auth.js · app.js (customer app) · admin.js (admin console)
 supabase/     schema.sql — the whole database: tables, security policies, functions, super admins
 scripts/      keep-alive.mjs
 .github/      workflows/keep-alive.yml

@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Sign in · Aureon</title>
   <meta name="description" content="Sign in to your Aureon account.">
-  <meta name="theme-color" content="#07090f">
+  <meta name="theme-color" content="#2563EB">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <script>try{var t=localStorage.getItem('aureon-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="assets/css/base.css">
   <link rel="stylesheet" href="assets/css/site.css">
   <script src="assets/js/icons.js"></script>
@@ -22,24 +22,33 @@
 <body data-page="login">
   <div class="auth">
     <aside class="auth-art on-dark">
-      <div class="hero-bg" aria-hidden="true"><div class="aurora a1"></div><div class="aurora a2"></div><div class="grid-lines"></div><div class="noise"></div></div>
-      <a class="logo" href="index.html"><svg aria-hidden="true"><use href="#i-logo"></use></svg>Aureon</a>
       <div>
-        <h2>Welcome <em>back.</em></h2>
-        <p>Your accounts, cards and savings — right where you left them.</p>
-        <div class="metal-card" aria-hidden="true">
-          <div class="brushed"></div>
-          <div class="mc-top"><span class="mc-brand">AUREON</span><span class="mc-tier">Private</span></div>
-          <div class="mc-mid"><span class="mc-chip"></span><svg class="i"><use href="#i-contactless"></use></svg></div>
-          <div class="mc-number">4821 •••• •••• 2026</div>
-          <div class="mc-bottom"><div><small>CARD HOLDER</small>YOUR NAME</div><div class="mc-network"><span></span><span></span></div></div>
+        <a class="logo" href="index.html"><svg aria-hidden="true"><use href="#i-logo"></use></svg>Aureon</a>
+        <h2 class="auth-headline">Welcome<br>back to<br><span>Aureon</span></h2>
+        <p class="auth-subtext">Your finances are safe with us. Sign in to reach your accounts, cards and savings.</p>
+        <ul class="auth-points">
+          <li><span class="auth-check">✓</span>Instant access to all your accounts</li>
+          <li><span class="auth-check">✓</span>Real-time alerts on every movement</li>
+          <li><span class="auth-check">✓</span>PIN-protected payments with lockout</li>
+          <li><span class="auth-check">✓</span>Your data isolated at the database level</li>
+        </ul>
+      </div>
+      <div class="auth-card-preview" aria-hidden="true">
+        <div class="auth-mini-card">
+          <div class="auth-card-chip"></div>
+          <div class="auth-card-num">•••• •••• •••• 4291</div>
+          <div class="auth-card-foot"><span class="auth-card-name">AUREON VISA</span><span class="auth-card-net">VISA</span></div>
+        </div>
+        <div class="auth-balance">
+          <div><small>Total Balance</small><b>$48,291.50</b></div>
+          <div style="text-align:right"><small>This Month</small><span class="up">↑ +$6,200</span></div>
         </div>
       </div>
-      <ul class="auth-points">
-        <li><svg class="i"><use href="#i-shield-check"></use></svg>PIN-protected payments with lockout</li>
-        <li><svg class="i"><use href="#i-lock"></use></svg>Your data isolated at the database level</li>
-        <li><svg class="i"><use href="#i-bell"></use></svg>Real-time alerts on every movement</li>
-      </ul>
+      <div class="auth-security">
+        <span><svg class="i" aria-hidden="true"><use href="#i-lock"></use></svg>Encrypted connection</span>
+        <span><svg class="i" aria-hidden="true"><use href="#i-shield-check"></use></svg>PIN secured</span>
+        <span><svg class="i" aria-hidden="true"><use href="#i-eye-off"></use></svg>Private</span>
+      </div>
     </aside>
     <main class="auth-main">
       <div class="auth-top">

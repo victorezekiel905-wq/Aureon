@@ -98,12 +98,11 @@
     play: '<path d="m6 3 14 9-14 9z"/>'
   };
 
-  var defs = '<defs><linearGradient id="aureon-gold" x1="0" y1="0" x2="1" y2="1">' +
-    '<stop offset="0" stop-color="#f6e3ad"/><stop offset=".5" stop-color="#d4af6a"/><stop offset="1" stop-color="#94702f"/></linearGradient></defs>';
-  var logo = '<symbol id="i-logo" viewBox="0 0 32 32"><rect width="32" height="32" rx="9" fill="#0b0f1a"/>' +
-    '<rect x=".5" y=".5" width="31" height="31" rx="8.5" fill="none" stroke="#ffffff" stroke-opacity=".08"/>' +
-    '<path d="M9 23.5 16 8l7 15.5" fill="none" stroke="url(#aureon-gold)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>' +
-    '<path d="M7 18.6c4.6-3.1 13.4-3.1 18 0" fill="none" stroke="url(#aureon-gold)" stroke-width="1.8" stroke-linecap="round"/></symbol>';
+  var defs = '<defs><linearGradient id="aureon-grad" x1="0" y1="0" x2="1" y2="1">' +
+    '<stop offset="0" stop-color="#2563EB"/><stop offset="1" stop-color="#7C3AED"/></linearGradient></defs>';
+  var logo = '<symbol id="i-logo" viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="url(#aureon-grad)"/>' +
+    '<path d="M9 23.5 16 8l7 15.5" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>' +
+    '<path d="M7 18.6c4.6-3.1 13.4-3.1 18 0" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></symbol>';
 
   var symbols = Object.keys(P).map(function (k) {
     return '<symbol id="i-' + k + '" viewBox="0 0 24 24">' + P[k] + '</symbol>';

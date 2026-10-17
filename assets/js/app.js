@@ -437,7 +437,7 @@
     if (!w) { A.toast('Allow pop-ups to print', { type: 'warning' }); return; }
     w.document.write('<!doctype html><html><head><meta charset="utf-8"><title>' + A.esc(title) + '</title><style>' +
       'body{font-family:Manrope,system-ui,sans-serif;color:#0e1220;margin:40px;font-size:13px}h1{font-size:22px;margin:0}' +
-      '.brand{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2px solid #c9a35a;padding-bottom:14px;margin-bottom:22px}' +
+      '.brand{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2px solid #2563eb;padding-bottom:14px;margin-bottom:22px}' +
       '.brand b{font-size:22px;letter-spacing:-.02em}.muted{color:#6a7080}table{width:100%;border-collapse:collapse;margin-top:16px}' +
       'th,td{text-align:left;padding:8px 6px;border-bottom:1px solid #e6e2d9}th{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#6a7080}' +
       '.r{text-align:right;font-variant-numeric:tabular-nums}.kv td:first-child{color:#6a7080;width:40%}.big{font-size:30px;font-weight:800;margin:14px 0}' +
