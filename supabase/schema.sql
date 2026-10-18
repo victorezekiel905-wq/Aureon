@@ -93,8 +93,32 @@ insert into public.fx_rates (currency, name, symbol, per_usd) values
   ('EUR', 'Euro',            '€',  0.92),
   ('GBP', 'British Pound',   '£',  0.79),
   ('CAD', 'Canadian Dollar', 'C$', 1.37),
-  ('NGN', 'Nigerian Naira',  '₦',  1550)
+  ('AUD', 'Australian Dollar', 'A$', 1.52)
 on conflict (currency) do nothing;
+
+-- Aureon no longer offers Nigerian Naira (replaced by Australian Dollar, 2026-10-18).
+-- Remove the NGN rate from databases installed earlier, unless something still uses it.
+do $ngn$
+declare in_use boolean := false;
+begin
+  if exists (select 1 from public.fx_rates where currency = 'NGN') then
+    if to_regclass('public.accounts') is not null then
+      execute 'select exists (select 1 from public.accounts where currency = ''NGN'')' into in_use;
+    end if;
+    if not in_use and to_regclass('public.savings_goals') is not null then
+      execute 'select exists (select 1 from public.savings_goals where currency = ''NGN'')' into in_use;
+    end if;
+    if not in_use and to_regclass('public.account_invites') is not null then
+      execute 'select exists (select 1 from public.account_invites where currency = ''NGN'')' into in_use;
+    end if;
+    if in_use then
+      raise notice 'NGN was kept because existing accounts, goals or invites still use it.';
+    else
+      delete from public.fx_rates where currency = 'NGN';
+    end if;
+  end if;
+end
+$ngn$;
 
 create table if not exists public.admin_allowlist (
   email      text primary key,

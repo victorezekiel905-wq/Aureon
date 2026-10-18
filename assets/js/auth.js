@@ -141,7 +141,7 @@
         }
       }).then(function (res) {
         if (res.error) throw res.error;
-        // Supabase returns a user with no identities when the email is already registered.
+        // The sign-up endpoint returns a user with no identities when the email is already registered.
         if (res.data.user && Array.isArray(res.data.user.identities) && res.data.user.identities.length === 0) {
           throw new Error('User already registered');
         }

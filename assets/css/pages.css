@@ -361,3 +361,10 @@
 @media (prefers-reduced-motion: reduce) {
   .image-hero-bg img, .card-fan .bank-card-lg, .acct-tile, .goal-card, .photo-chip, .photo-inset, .shield-ring, .shield-core { animation: none !important; }
 }
+
+/* ---- footer contact emails (shown once set in config.js) ---- */
+.footer-emails { list-style: none; display: grid; gap: 8px; margin-top: 14px; }
+.footer-emails li { display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--text-muted); }
+.footer-emails li[hidden], .footer-emails[hidden] { display: none; }
+.footer-emails a { color: var(--text-secondary); transition: color 0.3s ease; }
+.footer-emails a:hover { color: var(--primary); }

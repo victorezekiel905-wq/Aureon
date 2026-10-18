@@ -7,7 +7,7 @@
   window.A = A;
   A.config = cfg;
 
-  /* ---------- Supabase ---------- */
+  /* ---------- database client ---------- */
   A.configured = Boolean(cfg.supabaseUrl && cfg.supabaseAnonKey && window.supabase && window.supabase.createClient);
   A.sb = A.configured
     ? window.supabase.createClient(cfg.supabaseUrl, cfg.supabaseAnonKey, {
@@ -83,7 +83,7 @@
   };
 
   /* ---------- formatting ---------- */
-  var SYMBOLS = { USD: '$', EUR: '€', GBP: '£', NGN: '₦', CAD: 'C$' };
+  var SYMBOLS = { USD: '$', EUR: '€', GBP: '£', CAD: 'C$', AUD: 'A$' };
   A.symbol = function (c) { return SYMBOLS[c] || (c ? c + ' ' : ''); };
   var nfCache = {};
   A.money = function (amount, currency, opts) {
@@ -337,20 +337,20 @@
   /* ---------- errors & RPC ---------- */
   A.friendlyError = function (e) {
     var msg = (e && (e.message || e.error_description || e.error)) || String(e || 'Something went wrong.');
-    if (/Failed to fetch|NetworkError|Load failed/i.test(msg)) return 'Network problem — check your connection and try again.';
+    if (/Failed to fetch|NetworkError|Load failed/i.test(msg)) return 'Network problem. Check your connection and try again.';
     if (/JWT expired|invalid JWT|Please sign in again/i.test(msg)) return 'Your session expired. Please sign in again.';
     if (/Invalid login credentials/i.test(msg)) return 'That email and password do not match.';
-    if (/Email not confirmed/i.test(msg)) return 'Please confirm your email first — check your inbox for the link.';
+    if (/Email not confirmed/i.test(msg)) return 'Please confirm your email first. Check your inbox for the link.';
     if (/User already registered/i.test(msg)) return 'An account with this email already exists. Try signing in.';
     if (/rate limit|too many requests/i.test(msg)) return 'Too many attempts. Please wait a minute and try again.';
-    if (/Could not find the function|schema cache/i.test(msg)) return 'The database is not set up yet. Run supabase/schema.sql in your Supabase project.';
-    if (/relation .* does not exist/i.test(msg)) return 'The database is not set up yet. Run supabase/schema.sql in your Supabase project.';
+    if (/Could not find the function|schema cache/i.test(msg)) return 'This service is temporarily unavailable. Please try again shortly.';
+    if (/relation .* does not exist/i.test(msg)) return 'This service is temporarily unavailable. Please try again shortly.';
     if (/permission denied/i.test(msg)) return 'You do not have permission to do that.';
     return msg;
   };
 
   A.rpc = function (fn, args) {
-    if (!A.sb) return Promise.reject(new Error('Supabase is not configured. Edit assets/js/config.js.'));
+    if (!A.sb) return Promise.reject(new Error('Online banking is temporarily unavailable. Please try again shortly.'));
     return A.sb.rpc(fn, args || {}).then(function (res) {
       if (res.error) throw res.error;
       if (res.data && typeof res.data === 'object' && res.data.ok === false) {
@@ -395,13 +395,9 @@
   };
   A.setupNoticeHtml = function () {
     return A.html`<div class="setup-card">
-        <span class="eyebrow">Setup required</span>
-        <h2>Connect Aureon to Supabase</h2>
-        <ol>
-          <li>Create a free project at <a class="link" href="https://supabase.com/dashboard" target="_blank" rel="noopener">supabase.com</a>.</li>
-          <li>Open <b>SQL Editor</b>, paste <code>supabase/schema.sql</code> and press <b>Run</b>.</li>
-          <li>Copy the <b>Project URL</b> and <b>anon key</b> into <code>assets/js/config.js</code>.</li>
-        </ol>
+        <span class="eyebrow">Temporarily unavailable</span>
+        <h2>Online banking is under maintenance</h2>
+        <p class="muted">We are working to restore access as quickly as possible. Your accounts and money are not affected. Please try again shortly.</p>
         <a class="btn btn-primary mt-4" href="index.html">Back to home</a>
       </div>`;
   };

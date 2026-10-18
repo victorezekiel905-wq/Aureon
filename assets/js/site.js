@@ -200,9 +200,9 @@
   window.showToast = showToast;
 
   /* ---- Live data: rates, settings, session ---- */
-  var rates = { USD: 1, EUR: 0.92, GBP: 0.79, CAD: 1.37, NGN: 1550 };
-  var names = { USD: 'US Dollar', EUR: 'Euro', GBP: 'British Pound', CAD: 'Canadian Dollar', NGN: 'Nigerian Naira' };
-  var symbols = { USD: '$', EUR: '€', GBP: '£', CAD: 'C$', NGN: '₦' };
+  var rates = { USD: 1, EUR: 0.92, GBP: 0.79, CAD: 1.37, AUD: 1.52 };
+  var names = { USD: 'US Dollar', EUR: 'Euro', GBP: 'British Pound', CAD: 'Canadian Dollar', AUD: 'Australian Dollar' };
+  var symbols = { USD: '$', EUR: '€', GBP: '£', CAD: 'C$', AUD: 'A$' };
   var settings = { internal_fee_pct: 0, external_fee_pct: 0.005, external_fee_min: 1, review_threshold: 10000, daily_limit: 50000, savings_apr: 0.04, loan_apr: 0.12, max_loan: 50000, base_currency: 'USD', support_email: '' };
 
   var money = function (v, cur, noCents) {
@@ -291,13 +291,19 @@
     });
   }
 
+  // Contact emails come from contactEmails in assets/js/config.js (customer care falls
+  // back to the support email set by an admin). Anything left empty stays hidden.
   function renderSupport() {
-    var card = $('#emailContact'), link = $('#supportEmailLink');
-    if (card && link && settings.support_email) {
-      link.href = 'mailto:' + settings.support_email;
-      link.textContent = settings.support_email;
-      card.hidden = false;
-    }
+    var emails = (window.AUREON_CONFIG && window.AUREON_CONFIG.contactEmails) || {};
+    var address = function (key) { return String(emails[key] || (key === 'customerCare' ? settings.support_email : '') || '').trim(); };
+    $$('[data-email]').forEach(function (el) {
+      var a = address(el.getAttribute('data-email'));
+      el.hidden = !a;
+      if (!a) return;
+      var link = el.tagName === 'A' ? el : $('a', el);
+      if (link) { link.href = 'mailto:' + a; link.textContent = a; }
+    });
+    $$('[data-email-group]').forEach(function (g) { g.hidden = !$('[data-email]:not([hidden])', g); });
   }
 
   function renderAll() { fillSelects(); convert(); renderFacts(); renderRatesTable(); renderLoan(); renderSupport(); }

@@ -17,7 +17,7 @@ static site, backed by a free Supabase database. No build step — it runs on Gi
 | `app.html` | Customer banking app |
 | `admin.html` | Admin / super admin console |
 
-**Customers can:** hold up to 6 accounts in USD, EUR, GBP, CAD, NGN · send money to any Aureon account
+**Customers can:** hold up to 6 accounts in USD, EUR, GBP, CAD, AUD · send money to any Aureon account
 (name lookup, instant) · move money between their own accounts with live FX · send to other banks
 (reviewed) · pay bills · create, freeze, limit and cancel virtual cards · save toward goals · apply for and
 repay loans · see insights (cash flow, spending by category, top payees) · search/filter/export activity,
@@ -80,6 +80,9 @@ supabaseAnonKey: 'sb_publishable_...'   // the anon / publishable key — never 
 ```
 
 Both values are public by design; the database is protected by Row Level Security.
+
+The same file holds `contactEmails` (customer care, general enquiries, fraud, complaints).
+Any address you fill in appears in the website footer and on the Help page; empty ones stay hidden.
 
 ### 4. Publish on GitHub Pages
 Repository **Settings → Pages → Build and deployment → Deploy from a branch → `main` / `(root)`**.
